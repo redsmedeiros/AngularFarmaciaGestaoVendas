@@ -1,0 +1,42 @@
+<app-search></app-search>
+<app-tags></app-tags>
+<ul>
+  <li *ngFor="let farm of farmacy">
+    <a routerLink="/farmacy/{{farm.id}}">
+      <img [src]="farm.imageUrl" [alt]="farm.name"/>
+
+      <div class="content">
+        <div class="name">
+          {{farm.name}}
+        </div>
+
+        <span class="favorite {{ farm.favorite ? '' : 'not' }}">
+          ♥
+        </span>
+
+        <div class="product-item-footer">
+          <div class="origins">
+            <span *ngFor="let origin of farm.origins">
+              {{origin}}
+            </span>
+          </div>
+
+          <div class="cook-time">
+            <span>Entrega:</span> {{farm.deliveryTime}}
+          </div>
+
+          <div class="price">
+           Preço: <span>{{farm.price | currency}}</span>
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+
+
+    </a>
+  </li>
+</ul>

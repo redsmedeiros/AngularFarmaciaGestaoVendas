@@ -1,0 +1,41 @@
+<div class="container">
+  <img [src]="farmacy.imageUrl" [alt]="farmacy.name"/>
+
+  <div class="details">
+    <div class="header">
+      <span class="name">
+        {{farmacy.name}}
+      </span>
+
+      <span class="favorite {{farmacy.favorite ? '' : 'not'}}">
+        ♥
+      </span>
+    </div>
+
+    <div class="origins">
+      <span *ngFor="let origin of farmacy.origins">
+        {{origin}}
+      </span>
+    </div>
+
+    <div class="tags">
+      <a *ngFor="let tag of farmacy.tags" routerLink="/tag/{{tag}}">
+        {{tag}}
+      </a>
+    </div>
+
+    <div class="cook-time">
+      <span>
+        Tempo de entrega: <strong>{{farmacy.deliveryTime}}</strong>
+      </span>
+    </div>
+
+    <div class="price">
+      <span>
+       Preço: {{farmacy.price | currency}}
+      </span>
+    </div>
+
+    <button (click)="addToCart()">Adicionar ao carrinho</button>
+  </div>
+</div>
